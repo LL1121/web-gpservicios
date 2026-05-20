@@ -1,26 +1,92 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
+/* ─── GP Servicios SRL — Design System Tokens ─── */
+@theme {
+  /* Colors */
+  --color-gp-red:         #D0021B;
+  --color-gp-red-dark:    #A80016;
+  --color-gp-red-light:   #FF1A35;
+  --color-gp-green:       #2D7D46;
+  --color-gp-green-light: #3A9B5A;
+  --color-gp-slate:       #1A2535;
+  --color-gp-slate-light: #243348;
+  --color-gp-carbon:      #2C3848;
+  --color-gp-white-ind:   #FFFFFF;
+  --color-gp-gray-light:  #F4F5F7;
+  --color-gp-gray-tech:   #E2E5E9;
+  --color-gp-gray-mid:    #8A9BAB;
+  --color-gp-gray-dark:   #4A5568;
+
+  /* Typography */
+  --font-barlow: var(--font-barlow), 'Barlow', sans-serif;
+  --font-inter:  var(--font-inter), 'Inter', sans-serif;
+
+  /* Easings */
+  --ease-power3-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-expo-out:   cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing extras */
+  --spacing-section: 6rem;
+}
+
+/* ─── Header divider tokens ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-red: #bd1720;
+  --slate-tech: #1b232e;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Base Styles ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto; /* smooth scroll vía GSAP (SmoothScrollProvider) */
+  scroll-padding-top: 5rem; /* h-20 navbar compacto al scroll */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+section[id] {
+  scroll-margin-top: 5rem; /* alinear anclas con HeaderNavbar compacto */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-gp-white-ind);
+  color: var(--color-gp-slate);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-barlow);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* ─── Utility Classes ─── */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* GSAP will-change optimization */
+.gsap-animate {
+  will-change: transform, opacity;
+}
+
+/* Ticker duplicate for seamless loop */
+.ticker-track {
+  display: flex;
+  width: max-content;
 }

@@ -1,0 +1,30 @@
+services:
+  gpservicios-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lyntrix/gpservicios-front:latest
+    container_name: gpservicios-front
+    restart: unless-stopped
+
+    ports:
+      - "${FRONT_PORT:-3000}:3000"
+
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+      NEXT_TELEMETRY_DISABLED: 1
+
+    networks:
+      - lyntrix_network
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  lyntrix_network:
+    external: true

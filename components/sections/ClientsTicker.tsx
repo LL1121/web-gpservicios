@@ -1,0 +1,232 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { motion } from 'framer-motion'
+import SectionTag from '@/components/ui/SectionTag'
+// Client logos as SVG text/shapes — each with their brand identity color
+// In production, replace these with actual SVG logo files from /public/logos/
+const clients = [
+  {
+    id: 'ypf',
+    name: 'YPF',
+    brandColor: '#005DA4',
+    logo: (
+      <svg viewBox="0 0 80 32" className="h-8 w-auto">
+        <rect width="80" height="32" rx="4" fill="currentColor" />
+        <text x="40" y="22" textAnchor="middle" fontSize="14" fontWeight="800" fontFamily="Barlow, sans-serif" fill="white">
+          YPF
+        </text>
+      </svg>
+    ),
+  },
+  {
+    id: 'exxon',
+    name: 'ExxonMobil',
+    brandColor: '#C8102E',
+    logo: (
+      <svg viewBox="0 0 120 32" className="h-8 w-auto">
+        <text x="4" y="24" fontSize="18" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor" letterSpacing="-0.5">
+          Exx
+          <tspan fill="#EF3340">on</tspan>
+          Mobil
+        </text>
+      </svg>
+    ),
+  },
+  {
+    id: 'pluspetrol',
+    name: 'Pluspetrol',
+    brandColor: '#005BAA',
+    logo: (
+      <svg viewBox="0 0 120 32" className="h-8 w-auto">
+        <text x="4" y="22" fontSize="13" fontWeight="700" fontFamily="Barlow, sans-serif" fill="currentColor">
+          pluspetrol
+        </text>
+      </svg>
+    ),
+  },
+  {
+    id: 'capex',
+    name: 'CAPEX',
+    brandColor: '#1A2535',
+    logo: (
+      <svg viewBox="0 0 90 32" className="h-8 w-auto">
+        <text x="4" y="22" fontSize="16" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor" letterSpacing="2">
+          CAPEX
+        </text>
+      </svg>
+    ),
+  },
+  {
+    id: 'gyp',
+    name: 'Gas y Petróleo',
+    brandColor: '#E8751A',
+    logo: (
+      <svg viewBox="0 0 80 32" className="h-8 w-auto">
+        <text x="4" y="24" fontSize="22" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor">
+          GyP
+        </text>
+        <text x="40" y="24" fontSize="8" fontWeight="400" fontFamily="Inter, sans-serif" fill="currentColor" opacity="0.7">
+          10 años
+        </text>
+      </svg>
+    ),
+  },
+  {
+    id: 'tecsa',
+    name: 'TECSA',
+    brandColor: '#1A2535',
+    logo: (
+      <svg viewBox="0 0 90 32" className="h-8 w-auto">
+        <text x="4" y="22" fontSize="15" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor" letterSpacing="2">
+          TECSA
+        </text>
+      </svg>
+    ),
+  },
+  {
+    id: 'ops',
+    name: 'OPS S.A.C.I.',
+    brandColor: '#0057A8',
+    logo: (
+      <svg viewBox="0 0 80 32" className="h-8 w-auto">
+        <text x="4" y="22" fontSize="18" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor">
+          OPS
+        </text>
+        <text x="4" y="30" fontSize="7" fontWeight="400" fontFamily="Inter, sans-serif" fill="currentColor" opacity="0.7">
+          S.A.C.I.
+        </text>
+      </svg>
+    ),
+  },
+  {
+    id: 'patagonia',
+    name: 'Patagonia Field Services',
+    brandColor: '#C8102E',
+    logo: (
+      <svg viewBox="0 0 140 32" className="h-8 w-auto">
+        <text x="4" y="22" fontSize="13" fontWeight="700" fontFamily="Barlow, sans-serif" fill="currentColor">
+          PATAGONIA
+        </text>
+        <text x="4" y="30" fontSize="8" fontWeight="400" fontFamily="Inter, sans-serif" fill="currentColor" opacity="0.7">
+          Field Services
+        </text>
+      </svg>
+    ),
+  },
+  {
+    id: 'simetra',
+    name: 'SIMETRA Service',
+    brandColor: '#2C6FAC',
+    logo: (
+      <svg viewBox="0 0 100 32" className="h-8 w-auto">
+        <text x="4" y="22" fontSize="14" fontWeight="700" fontFamily="Barlow, sans-serif" fill="currentColor">
+          SIMETRA
+        </text>
+        <text x="4" y="30" fontSize="8" fontWeight="400" fontFamily="Inter, sans-serif" fill="currentColor" opacity="0.7">
+          Service S.R.L.
+        </text>
+      </svg>
+    ),
+  },
+]
+
+function ClientLogo({ client }: { client: typeof clients[0] }) {
+  return (
+    <motion.div
+      className="flex-shrink-0 flex items-center justify-center px-8 py-4"
+      style={{ color: '#C8CBD0' }} // grayscale default
+      whileHover={{ color: client.brandColor, scale: 1.08 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+      title={client.name}
+    >
+      {client.logo}
+    </motion.div>
+  )
+}
+
+export default function ClientsTicker({ standalone = false }: { standalone?: boolean }) {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const tweenRef = useRef<gsap.core.Tween | null>(null)
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+
+    // Measure single set width after mount
+    const singleSetWidth = track.scrollWidth / 2
+
+    tweenRef.current = gsap.to(track, {
+      x: `-=${singleSetWidth}`,
+      duration: singleSetWidth / 60, // ~60px per second
+      ease: 'none',
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % singleSetWidth),
+      },
+    })
+
+    // Pause on hover
+    const handleMouseEnter = () => tweenRef.current?.pause()
+    const handleMouseLeave = () => tweenRef.current?.resume()
+    track.parentElement?.addEventListener('mouseenter', handleMouseEnter)
+    track.parentElement?.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      tweenRef.current?.kill()
+      track.parentElement?.removeEventListener('mouseenter', handleMouseEnter)
+      track.parentElement?.removeEventListener('mouseleave', handleMouseLeave)
+    }
+  }, [])
+
+  return (
+    <section id="clientes" className="bg-white">
+      <div className={`py-16 lg:py-20 ${standalone ? 'pt-8 lg:pt-12' : ''}`}>
+        {/* Header */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 text-center">
+          <SectionTag label="Clientes y Operadoras" className="justify-center mb-4" />
+          <h2
+            className="font-[family-name:var(--font-barlow)] font-extrabold text-3xl lg:text-4xl"
+            style={{ color: '#1A2535' }}
+          >
+            Las operadoras que{' '}
+            <span style={{ color: '#D0021B' }}>confían en GP</span>
+          </h2>
+          <p className="mt-3 text-sm max-w-md mx-auto" style={{ color: '#8A9BAB' }}>
+            Clientes y operadoras del sector Petróleo y Gas en Neuquén y la Patagonia.
+          </p>
+        </div>
+
+        {/* Ticker — overflow hidden container */}
+        <div className="relative overflow-hidden">
+          {/* Fade masks left/right */}
+          <div
+            className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, white, transparent)' }}
+          />
+          <div
+            className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to left, white, transparent)' }}
+          />
+
+          <div
+            ref={trackRef}
+            className="ticker-track items-center border-t border-b border-[--color-gp-gray-tech]"
+            style={{ display: 'flex', width: 'max-content' }}
+          >
+            {/* Duplicate for seamless loop */}
+            {[...clients, ...clients].map((c, i) => (
+              <ClientLogo key={`${c.id}-${i}`} client={c} />
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom note */}
+        <p className="text-center text-xs mt-6" style={{ color: '#C8CBD0' }}>
+          Pasá el cursor sobre cada logo para ver la identidad de la operadora
+        </p>
+      </div>
+    </section>
+  )
+}
