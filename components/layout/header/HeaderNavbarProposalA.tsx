@@ -53,7 +53,11 @@ export default function HeaderNavbarProposalA() {
     }
   }, [mobileOpen])
 
-  const lightOnDark = isHome || isScrolled
+  /** La onda solo se muestra al scrollear; el menú móvil no la fuerza.
+   *  Pero el color de los textos sí se vuelve claro cuando el drawer
+   *  móvil está abierto (su fondo slate queda detrás del header). */
+  const waveVisible = isScrolled
+  const lightOnDark = isHome || waveVisible || mobileOpen
   const linkColor = lightOnDark ? '#FFFFFF' : DARK_TEXT
   const logoSubColor = lightOnDark ? 'rgba(255,255,255,0.75)' : 'rgba(26,37,53,0.65)'
   const hamburgerColor = lightOnDark ? '#FFFFFF' : DARK_TEXT
@@ -79,11 +83,11 @@ export default function HeaderNavbarProposalA() {
       >
         <div
           className={`pointer-events-none absolute inset-0 h-full w-full transition-all duration-300 ease-out ${
-            isScrolled
+            waveVisible
               ? 'translate-y-0 opacity-100'
               : '-translate-y-full opacity-0'
           }`}
-          aria-hidden={!isScrolled}
+          aria-hidden={!waveVisible}
         >
           <WaveBackground />
         </div>
@@ -174,17 +178,22 @@ export default function HeaderNavbarProposalA() {
         </button>
       </header>
 
-      <AnimatePresence>
+      {/* Menú móvil: siempre cae desde el top por detrás del header (z-40 vs z-50).
+          Con onda: la curva SVG queda como techo y los items asoman bajo ella.
+          Sin onda: el slate del drawer cubre el área del header — los textos
+          del navbar pasan a blanco (ver `lightOnDark`) para mantener contraste. */}
+      <AnimatePresence initial={false}>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="fixed left-0 right-0 top-20 z-40 border-b border-white/10 shadow-lg lg:hidden"
-            style={{ background: SLATE }}
+            key="mobile-drawer"
+            initial={{ y: '-100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '-100%' }}
+            transition={{ duration: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+            className="fixed left-0 right-0 top-0 z-40 border-b border-white/10 shadow-lg lg:hidden"
+            style={{ background: SLATE, paddingTop: '5rem' }}
           >
-            <nav className="mx-auto flex max-h-[min(70vh,100dvh-5rem)] max-w-7xl flex-col gap-0.5 overflow-y-auto px-4 py-3 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6">
+            <nav className="mx-auto flex max-h-[min(calc(70vh+5rem),100dvh)] max-w-7xl flex-col gap-0.5 overflow-y-auto px-4 py-3 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6">
               {mainNavLinks.map(link => (
                 <Link
                   key={link.href}
