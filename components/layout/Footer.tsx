@@ -8,8 +8,8 @@ export default function Footer() {
       <svg
         viewBox="0 0 1440 80"
         preserveAspectRatio="none"
-        className="w-full -mb-1"
-        style={{ height: 80, display: 'block', background: '#FFFFFF' }}
+        className="-mb-1 h-10 w-full sm:h-16 lg:h-20"
+        style={{ display: 'block', background: '#FFFFFF' }}
       >
         <path
           d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,60 L1440,80 L0,80 Z"
@@ -17,8 +17,8 @@ export default function Footer() {
         />
       </svg>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+      <div className="mx-auto max-w-7xl px-4 pb-8 pt-12 sm:px-6 sm:pt-16 lg:px-8">
+        <div className="mb-10 grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-4 lg:mb-14">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <svg viewBox="0 0 48 48" className="w-12 h-12 flex-shrink-0">
@@ -40,7 +40,7 @@ export default function Footer() {
                 <span className="block text-sm font-bold tracking-widest uppercase text-white font-[family-name:var(--font-barlow)]">
                   GP SERVICIOS
                 </span>
-                <span className="block text-[10px] tracking-[0.3em] uppercase" style={{ color: '#8A9BAB' }}>
+                <span className="block text-xs tracking-[0.3em] uppercase" style={{ color: '#8A9BAB' }}>
                   S.R.L.
                 </span>
               </div>
@@ -154,7 +154,7 @@ export default function Footer() {
                       </p>
                       <a
                         href={`mailto:${e.email}`}
-                        className="text-sm transition-colors hover:text-white"
+                        className="break-all text-sm transition-colors hover:text-white"
                         style={{ color: '#8A9BAB' }}
                       >
                         {e.email}
@@ -193,7 +193,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-6">
           <div
-            className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs"
+            className="flex flex-col items-center justify-between gap-3 text-[13px] md:flex-row md:text-xs"
             style={{ color: '#4A5568' }}
           >
             <p>© {new Date().getFullYear()} {company.legalName} — Todos los derechos reservados.</p>

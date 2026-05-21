@@ -65,6 +65,46 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-barlow);
   font-weight: 700;
   line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Contenedor estándar de secciones */
+.section-container {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-block: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-inline: 1.5rem;
+    padding-block: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-inline: 2rem;
+    padding-block: 7rem;
+  }
+}
+
+/* Service cards: descripción visible en touch (sin hover) */
+@media (hover: none), (max-width: 1023px) {
+  .service-card-desc,
+  .service-card-cta {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .service-card-bg {
+    filter: grayscale(0.35) brightness(0.5) !important;
+  }
+
+  .service-card-accent {
+    transform: scaleY(1) !important;
+  }
 }
 
 /* ─── Utility Classes ─── */

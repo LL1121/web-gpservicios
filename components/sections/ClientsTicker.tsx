@@ -135,7 +135,7 @@ const clients = [
 function ClientLogo({ client }: { client: typeof clients[0] }) {
   return (
     <motion.div
-      className="flex-shrink-0 flex items-center justify-center px-8 py-4"
+      className="flex flex-shrink-0 items-center justify-center px-5 py-4 sm:px-8"
       style={{ color: '#C8CBD0' }} // grayscale default
       whileHover={{ color: client.brandColor, scale: 1.08 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
@@ -182,12 +182,11 @@ export default function ClientsTicker({ standalone = false }: { standalone?: boo
 
   return (
     <section id="clientes" className="bg-white">
-      <div className={`py-16 lg:py-20 ${standalone ? 'pt-8 lg:pt-12' : ''}`}>
-        {/* Header */}
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 text-center">
-          <SectionTag label="Clientes y Operadoras" className="justify-center mb-4" />
+      <div className={`section-container max-w-none !py-12 sm:!py-16 lg:!py-20 ${standalone ? '!pt-6 sm:!pt-8 lg:!pt-12' : ''}`}>
+        <div className="mx-auto mb-8 max-w-7xl px-4 text-center sm:mb-10 sm:px-6 lg:px-8">
+          <SectionTag label="Clientes y Operadoras" className="mb-4 justify-center" />
           <h2
-            className="font-[family-name:var(--font-barlow)] font-extrabold text-3xl lg:text-4xl"
+            className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold sm:text-3xl lg:text-4xl"
             style={{ color: '#1A2535' }}
           >
             Las operadoras que{' '}
@@ -202,11 +201,11 @@ export default function ClientsTicker({ standalone = false }: { standalone?: boo
         <div className="relative overflow-hidden">
           {/* Fade masks left/right */}
           <div
-            className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+            className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-10 sm:w-16 md:w-24"
             style={{ background: 'linear-gradient(to right, white, transparent)' }}
           />
           <div
-            className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+            className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-10 sm:w-16 md:w-24"
             style={{ background: 'linear-gradient(to left, white, transparent)' }}
           />
 

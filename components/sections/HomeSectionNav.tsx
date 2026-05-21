@@ -12,7 +12,7 @@ export default function HomeSectionNav() {
       className="relative"
       style={{ background: '#F4F5F7' }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+      <div className="section-container max-w-7xl !py-12 sm:!py-16 lg:!py-20">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <SectionTag label="Navegación del sitio" className="justify-center mb-4" />
           <h2

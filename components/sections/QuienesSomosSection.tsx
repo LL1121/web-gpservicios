@@ -16,7 +16,7 @@ export default function QuienesSomosSection({ standalone = false }: { standalone
       description={quienesSomos.intro}
       topCurve={{ fill: '#FFFFFF', from: '#F4F5F7' }}
     >
-      <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
+      <div className="grid gap-8 lg:grid-cols-3 lg:gap-14">
         <div className="lg:col-span-2 space-y-5 text-base leading-relaxed" style={{ color: '#4A5568' }}>
           <p>{quienesSomos.intro}</p>
           <p>{quienesSomos.experiencia}</p>

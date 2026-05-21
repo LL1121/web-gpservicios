@@ -4,11 +4,13 @@ import { company, contact } from '@/lib/site-content'
 export default function ContactSection({ standalone = false }: { standalone?: boolean }) {
   return (
     <section id="contacto" className="bg-white">
-      <div className={`max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 ${standalone ? 'pt-8 lg:pt-12' : ''}`}>
-        <header className="mb-12 lg:mb-16 max-w-3xl">
+      <div
+        className={`section-container max-w-7xl ${standalone ? '!pt-6 sm:!pt-8 lg:!pt-12' : ''}`}
+      >
+        <header className="mb-8 max-w-3xl sm:mb-12 lg:mb-16">
           <SectionTag label="Contacto" className="mb-4" />
           <h1
-            className="font-[family-name:var(--font-barlow)] font-extrabold text-3xl lg:text-4xl leading-tight"
+            className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl"
             style={{ color: '#1A2535' }}
           >
             Estamos en{' '}
@@ -20,7 +22,7 @@ export default function ContactSection({ standalone = false }: { standalone?: bo
           </p>
         </header>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid gap-6 sm:gap-10 lg:grid-cols-2">
           <div className="space-y-6">
             {[contact.plant, contact.fiscal, contact.base].map(loc => (
               <div
@@ -83,7 +85,7 @@ export default function ContactSection({ standalone = false }: { standalone?: bo
                 </p>
                 <a
                   href={`mailto:${item.email}`}
-                  className="text-lg font-semibold transition-colors hover:text-[#bd1720] font-[family-name:var(--font-barlow)]"
+                  className="break-all text-base font-semibold transition-colors hover:text-[#bd1720] font-[family-name:var(--font-barlow)] sm:text-lg"
                   style={{ color: '#1A2535' }}
                 >
                   {item.email}

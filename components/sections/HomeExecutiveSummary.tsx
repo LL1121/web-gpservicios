@@ -4,8 +4,8 @@ import { company, homeHighlights, quienesSomos } from '@/lib/site-content'
 export default function HomeExecutiveSummary() {
   return (
     <section className="bg-white border-b" style={{ borderColor: '#E2E5E9' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="section-container max-w-7xl !py-12 sm:!py-16 lg:!py-20">
+        <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <SectionTag label="Resumen ejecutivo" className="mb-5" />
             <h2

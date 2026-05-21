@@ -30,7 +30,7 @@ export default function HeroSection() {
     <section
       ref={containerRef}
       id="inicio"
-      className="relative flex min-h-[85vh] items-center overflow-hidden pt-28 md:pt-32"
+      className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden pt-20 sm:min-h-[85vh] sm:pt-24 md:pt-28"
       style={{ background: '#1b232e' }}
     >
       {/* Background image with curved mask */}
@@ -82,10 +82,9 @@ export default function HeroSection() {
 
         {/* Bottom wave transition */}
         <svg
-          className="absolute bottom-0 left-0 right-0 w-full"
+          className="absolute bottom-0 left-0 right-0 h-10 w-full sm:h-16 lg:h-20"
           viewBox="0 0 1440 80"
           preserveAspectRatio="none"
-          style={{ height: 80 }}
         >
           <path
             d="M0,80 C240,20 480,80 720,40 C960,0 1200,60 1440,20 L1440,80 Z"
@@ -95,7 +94,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-2 lg:px-8 md:pb-32">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-16 pt-2 sm:px-6 sm:pb-24 lg:px-8 md:pb-32">
         <div className="max-w-2xl xl:max-w-3xl">
 
           {/* Section tag */}
@@ -107,21 +106,21 @@ export default function HeroSection() {
           <h1
             ref={headlineRef}
             className="font-[family-name:var(--font-barlow)] font-extrabold text-white leading-[1.05] mb-6"
-            style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)' }}
+            style={{ fontSize: 'clamp(1.875rem, 6vw, 4.5rem)' }}
           >
             Ingeniería, construcción y{' '}
             <span style={{ color: '#bd1720' }}>montaje industrial</span>
           </h1>
 
-          <p className="mb-10 max-w-4xl text-lg font-normal leading-relaxed text-gray-300 md:text-xl">
+          <p className="mb-8 max-w-4xl text-base font-normal leading-relaxed text-gray-300 sm:mb-10 sm:text-lg md:text-xl">
             {quienesSomos.intro}
           </p>
 
           {/* CTAs */}
-          <div ref={ctasRef} className="flex flex-wrap gap-4">
+          <div ref={ctasRef} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <Link
               href="#explorar"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 font-[family-name:var(--font-barlow)]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 font-[family-name:var(--font-barlow)] sm:w-auto"
               style={{
                 background: '#bd1720',
                 boxShadow: '0 4px 20px rgba(189,23,32,0.4)',
@@ -134,7 +133,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="/quienes-somos"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-bold transition-all border hover:bg-white/10 font-[family-name:var(--font-barlow)]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg border px-7 py-3.5 text-sm font-bold transition-all hover:bg-white/10 font-[family-name:var(--font-barlow)] sm:w-auto"
               style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}
             >
               Conocer la Empresa
@@ -142,7 +141,7 @@ export default function HeroSection() {
           </div>
 
           {/* Trust badges */}
-          <div ref={badgesRef} className="flex flex-wrap items-center gap-6 mt-14 pt-8 border-t border-white/10">
+          <div ref={badgesRef} className="mt-10 grid grid-cols-2 gap-x-4 gap-y-5 border-t border-white/10 pt-6 sm:mt-14 sm:flex sm:flex-wrap sm:items-center sm:gap-6 sm:pt-8">
             {[
               { label: '2013', sub: 'actividad comercial' },
               { label: '+20', sub: 'años en el rubro' },
@@ -166,7 +165,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+      <div className="absolute bottom-20 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 opacity-40 md:flex">
         <span className="text-xs tracking-widest text-white uppercase">Scroll</span>
         <svg className="w-4 h-4 text-white animate-bounce" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />

@@ -124,19 +124,21 @@ export default function ServicesSection({ standalone = false }: { standalone?: b
 
   return (
     <section ref={sectionRef} id="servicios" style={{ background: '#F4F5F7' }}>
-      <div className={`max-w-7xl mx-auto px-6 lg:px-8 pb-24 lg:pb-32 ${standalone ? 'pt-8 lg:pt-12' : ''}`}>
-        <div className="service-header flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14">
+      <div
+        className={`section-container max-w-7xl !pb-16 sm:!pb-24 lg:!pb-32 ${standalone ? '!pt-6 sm:!pt-8 lg:!pt-12' : ''}`}
+      >
+        <div className="service-header mb-8 flex flex-col sm:mb-10 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <SectionTag label="Servicios" className="mb-4" />
             <h2
-              className="font-[family-name:var(--font-barlow)] font-extrabold text-3xl lg:text-4xl xl:text-5xl"
+              className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold sm:text-3xl lg:text-4xl xl:text-5xl"
               style={{ color: '#1A2535' }}
             >
               Gama de servicios{' '}
               <span style={{ color: '#D0021B' }}>para Oil & Gas</span>
             </h2>
           </div>
-          <p className="mt-4 lg:mt-0 text-base max-w-md lg:text-right" style={{ color: '#8A9BAB' }}>
+          <p className="mt-4 max-w-full text-sm sm:text-base lg:mt-0 lg:max-w-md lg:text-right" style={{ color: '#8A9BAB' }}>
             Catálogo operativo según carpeta institucional y sitio gpservicios.com.ar: desde soldadura
             y montaje hasta ingeniería civil, arenado y movimiento de suelo.
           </p>

@@ -30,25 +30,25 @@ export default function SectionShell({
   return (
     <section id={id} style={{ background }} className={className}>
       {!standalone && topCurve && (
-        <CurveDivider fill={topCurve.fill} direction="up" height={72} />
+        <CurveDivider fill={topCurve.fill} direction="up" className="lg:h-[4.5rem]" />
       )}
 
       <div
-        className={`max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 ${
-          standalone ? 'pt-8 lg:pt-12' : ''
+        className={`section-container max-w-7xl ${
+          standalone ? '!pt-6 sm:!pt-8 lg:!pt-12' : ''
         }`}
       >
-        <header className="mb-12 lg:mb-16 max-w-3xl">
+        <header className="mb-8 max-w-3xl sm:mb-12 lg:mb-16">
           <SectionTag label={tag} className="mb-4" light={background === '#1A2535'} />
           <h2
-            className="font-[family-name:var(--font-barlow)] font-extrabold text-3xl lg:text-4xl leading-tight"
+            className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl"
             style={{ color: background === '#1A2535' ? '#FFFFFF' : '#1A2535' }}
           >
             {title}
           </h2>
           {description && (
             <p
-              className="mt-4 text-base lg:text-lg leading-relaxed"
+              className="mt-4 text-[15px] leading-relaxed sm:text-base lg:text-lg"
               style={{ color: background === '#1A2535' ? '#8A9BAB' : '#4A5568' }}
             >
               {description}

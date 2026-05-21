@@ -29,6 +29,7 @@ export default function HeaderNavbarProposalA() {
 
   const [mobileOpen, setMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > SCROLL_THRESHOLD)
@@ -37,11 +38,32 @@ export default function HeaderNavbarProposalA() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  /** Texto blanco si hay fondo oscuro (hero del home o la onda ya bajó). */
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const update = () => setIsDesktop(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
   const lightOnDark = isHome || isScrolled
   const linkColor = lightOnDark ? '#FFFFFF' : DARK_TEXT
   const logoSubColor = lightOnDark ? 'rgba(255,255,255,0.75)' : 'rgba(26,37,53,0.65)'
   const hamburgerColor = lightOnDark ? '#FFFFFF' : DARK_TEXT
+
+  const logoTransform =
+    isDesktop && isScrolled
+      ? 'translate(calc(-50% - 12px), calc(-50% + 24px))'
+      : isDesktop
+        ? 'translate(-50%, -50%)'
+        : 'translateY(-50%)'
 
   const linkBaseClass =
     'whitespace-nowrap text-xs font-semibold tracking-[0.08em] transition-colors duration-300 ease-out hover:opacity-80 font-[family-name:var(--font-inter)] md:text-sm'
@@ -55,7 +77,6 @@ export default function HeaderNavbarProposalA() {
         className="fixed top-0 left-0 z-50 h-20 w-full overflow-hidden"
         aria-label="Encabezado de navegación"
       >
-        {/* Fondo SVG: oculto al inicio, se despliega hacia abajo al scrollear */}
         <div
           className={`pointer-events-none absolute inset-0 h-full w-full transition-all duration-300 ease-out ${
             isScrolled
@@ -67,29 +88,27 @@ export default function HeaderNavbarProposalA() {
           <WaveBackground />
         </div>
 
-        {/* Logo: centrado en estado inicial; al scrollear baja para
-            esquivar el lomo de las ondas que se despliegan. */}
         <Link
           href="/"
-          className="absolute top-1/2 left-1/2 z-30 flex items-center gap-2.5 select-none transition-transform duration-300 ease-out md:gap-3"
-          style={{
-            transform: `translate(calc(-50% - ${isScrolled ? '12px' : '0px'}), calc(-50% + ${isScrolled ? '24px' : '0px'}))`,
-          }}
+          className="absolute top-1/2 left-4 z-30 flex max-w-[calc(100%-4.5rem)] items-center gap-2 select-none transition-[color,transform] duration-300 ease-out sm:gap-2.5 lg:left-1/2 lg:max-w-none lg:gap-3"
+          style={{ transform: logoTransform }}
           aria-label="GP Servicios — Inicio"
         >
           <div
-            className="rounded-sm bg-white px-2.5 py-1 text-base font-black tracking-tighter font-[family-name:var(--font-barlow)]"
+            className="rounded-sm bg-white px-2 py-0.5 text-sm font-black tracking-tighter font-[family-name:var(--font-barlow)] sm:px-2.5 sm:py-1 sm:text-base"
             style={{ color: RED }}
           >
             GP
           </div>
           <div
-            className="flex flex-col font-bold leading-tight font-[family-name:var(--font-barlow)] transition-colors duration-300 ease-out"
+            className="flex min-w-0 flex-col font-bold leading-tight font-[family-name:var(--font-barlow)] transition-colors duration-300 ease-out"
             style={{ color: linkColor }}
           >
-            <span className="text-xs tracking-[0.12em] md:text-sm">GP SERVICIOS</span>
+            <span className="truncate text-[11px] tracking-[0.1em] sm:text-xs md:text-sm">
+              GP SERVICIOS
+            </span>
             <span
-              className="text-[9px] font-[family-name:var(--font-inter)] font-medium tracking-[0.2em] md:text-[10px] transition-colors duration-300 ease-out"
+              className="hidden text-[9px] font-[family-name:var(--font-inter)] font-medium tracking-[0.2em] transition-colors duration-300 ease-out sm:block sm:text-[10px]"
               style={{ color: logoSubColor }}
             >
               S.R.L.
@@ -97,7 +116,6 @@ export default function HeaderNavbarProposalA() {
           </div>
         </Link>
 
-        {/* Onda roja (izquierda): 3 botones */}
         <div className="absolute top-[calc(50%-10px)] left-3 z-30 hidden -translate-y-1/2 items-center gap-5 sm:left-4 lg:left-6 lg:flex lg:gap-6 xl:left-8 xl:gap-8">
           {redZoneLinks.map(link => (
             <Link
@@ -131,8 +149,9 @@ export default function HeaderNavbarProposalA() {
 
         <button
           type="button"
-          className="absolute right-3 top-1/2 z-30 flex -translate-y-1/2 flex-col gap-1.5 p-2 sm:right-4 lg:hidden"
+          className="absolute right-3 top-1/2 z-40 flex min-h-[44px] min-w-[44px] -translate-y-1/2 flex-col items-center justify-center gap-1.5 p-2 sm:right-4 lg:hidden"
           aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(v => !v)}
         >
           {[0, 1, 2].map(i => {
@@ -165,13 +184,13 @@ export default function HeaderNavbarProposalA() {
             className="fixed left-0 right-0 top-20 z-40 border-b border-white/10 shadow-lg lg:hidden"
             style={{ background: SLATE }}
           >
-            <nav className="mx-auto flex max-h-[70vh] max-w-7xl flex-col gap-1 overflow-y-auto px-4 py-4 sm:px-6">
+            <nav className="mx-auto flex max-h-[min(70vh,100dvh-5rem)] max-w-7xl flex-col gap-0.5 overflow-y-auto px-4 py-3 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6">
               {mainNavLinks.map(link => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 font-[family-name:var(--font-inter)]"
+                  className="flex min-h-[48px] items-center rounded-lg px-3 py-3 text-base font-medium text-white transition-colors hover:bg-white/10 font-[family-name:var(--font-inter)]"
                 >
                   {link.label}
                 </Link>

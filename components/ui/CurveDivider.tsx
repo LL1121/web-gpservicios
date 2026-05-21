@@ -15,13 +15,13 @@ interface CurveDividerProps {
 export default function CurveDivider({
   fill,
   direction = 'down',
-  height = 80,
+  height,
   className = '',
 }: CurveDividerProps) {
   return (
     <div
-      className={`relative w-full overflow-hidden leading-[0] ${className}`}
-      style={{ height }}
+      className={`relative w-full overflow-hidden leading-[0] h-12 sm:h-16 lg:h-20 ${className}`}
+      style={height !== undefined ? { height } : undefined}
       aria-hidden="true"
     >
       {direction === 'down' ? (
