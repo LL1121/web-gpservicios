@@ -8,12 +8,13 @@ Sitio institucional de **GP Servicios S.R.L.** (ingeniería, construcción y mon
 
 | Ruta | Contenido |
 |------|-----------|
-| `/` | Presentación: hero, resumen ejecutivo y navegación a secciones |
+| `/` | Hero, resumen ejecutivo, carrusel de operadoras y navegación |
 | `/quienes-somos` | Historia (desde 2013), experiencia y objetivo institucional |
 | `/politicas-gestion` | Política de gestión y 8 compromisos del SGI (HSEQ) |
-| `/servicios` | Catálogo de 8 servicios operativos (PDF + sitio legacy) |
-| `/clientes` | Carrusel de operadoras y empresas del sector |
-| `/staff` | Organigrama interactivo con drawer por área |
+| `/servicios` | Catálogo de 8 servicios operativos + página por servicio |
+| `/servicios/[slug]` | Detalle por servicio (alcance, aplicaciones, contacto) |
+| `/certificaciones` | Certificados ISO con visor PDF nativo y verificación |
+| `/staff` | Organigrama interactivo con panel por área |
 | `/contacto` | Planta, domicilios fiscal/base, teléfonos y correos |
 
 ### Experiencia y diseño

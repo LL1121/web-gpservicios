@@ -5,7 +5,7 @@ export const mainNavLinks = [
   { href: '/quienes-somos', label: 'Quiénes somos' },
   { href: '/politicas-gestion', label: 'Políticas de gestión' },
   { href: '/servicios', label: 'Servicios' },
-  { href: '/clientes', label: 'Clientes' },
+  { href: '/certificaciones', label: 'Certificaciones' },
   { href: '/staff', label: 'Staff' },
   { href: '/contacto', label: 'Contacto' },
 ] as const
@@ -33,9 +33,10 @@ export const homeExploreLinks = [
     accent: '#FF0001',
   },
   {
-    href: '/clientes',
-    label: 'Clientes',
-    description: 'Operadoras y empresas del sector que confían en GP Servicios.',
+    href: '/certificaciones',
+    label: 'Certificaciones',
+    description:
+      'ISO 9001, 14001 y 45001 del Sistema de Gestión Integrado, con visor y validación.',
     accent: '#005DA4',
   },
   {
