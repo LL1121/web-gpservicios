@@ -294,8 +294,8 @@ export const contact = {
   emails: [
     { label: 'Administración', email: 'administracion@gpservicios.com.ar' },
     { label: 'Comercial', email: 'comercial@gpservicios.com.ar' },
-    { label: 'Marco', email: 'marco.gpservicios@outlook.com' },
-    { label: 'Carlos', email: 'carlos.gpservicios@outlook.com' },
+    { label: 'Marco Ibarra', email: 'marco.ibarra@gpservicios.com.ar' },
+    { label: 'Rosario Jorge', email: 'rosario.jorge@gpservicios.com.ar' },
   ],
 } as const
 

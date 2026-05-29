@@ -6,6 +6,8 @@ import SectionTag from '@/components/ui/SectionTag'
 import { certifications, type Certification } from '@/lib/certifications'
 
 function CertCard({ cert, onView }: { cert: Certification; onView: () => void }) {
+  const hasFile = Boolean(cert.fileUrl)
+
   return (
     <motion.article
       whileHover={{ y: -4 }}
@@ -77,18 +79,27 @@ function CertCard({ cert, onView }: { cert: Certification; onView: () => void })
         </p>
 
         <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={onView}
-            className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg px-4 text-sm font-semibold text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
-            style={{ background: '#1A2228' }}
-            aria-label={`Ver ${cert.name}`}
-          >
-            <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5">
-              <path d="M8 3a8 8 0 0 0-7.5 5 8 8 0 0 0 15 0A8 8 0 0 0 8 3Zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-            </svg>
-            Ver certificado
-          </button>
+          {hasFile ? (
+            <button
+              type="button"
+              onClick={onView}
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg px-4 text-sm font-semibold text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{ background: '#1A2228' }}
+              aria-label={`Ver ${cert.name}`}
+            >
+              <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5">
+                <path d="M8 3a8 8 0 0 0-7.5 5 8 8 0 0 0 15 0A8 8 0 0 0 8 3Zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+              </svg>
+              Ver certificado
+            </button>
+          ) : (
+            <span
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-dashed px-4 text-sm font-semibold"
+              style={{ borderColor: '#C8CBD0', color: '#8A9BAB' }}
+            >
+              Próximamente
+            </span>
+          )}
           <a
             href={cert.verifyUrl}
             target="_blank"
@@ -108,7 +119,9 @@ function CertCard({ cert, onView }: { cert: Certification; onView: () => void })
   )
 }
 
-function CertModal({ cert, onClose }: { cert: Certification; onClose: () => void }) {
+type CertWithFile = Certification & { fileUrl: string }
+
+function CertModal({ cert, onClose }: { cert: CertWithFile; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
@@ -259,7 +272,11 @@ function CertModal({ cert, onClose }: { cert: Certification; onClose: () => void
 
 export default function CertificationsSection({ standalone = false }: { standalone?: boolean }) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null)
-  const active = activeSlug ? certifications.find(c => c.slug === activeSlug) ?? null : null
+  const active: CertWithFile | null = activeSlug
+    ? (certifications.find(
+        (c): c is CertWithFile => c.slug === activeSlug && c.fileUrl !== null,
+      ) ?? null)
+    : null
 
   return (
     <section id="certificaciones" style={{ background: '#FFFFFF' }}>

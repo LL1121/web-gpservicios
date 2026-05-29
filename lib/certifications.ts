@@ -30,8 +30,9 @@ export interface Certification {
   validity: string
   /** Bajada corta */
   description: string
-  /** Path al PDF en /public (ej: "/certs/iso9001.pdf") */
-  fileUrl: string
+  /** Path al PDF en /public (ej: "/certs/iso9001.pdf"). null si todavía no
+   *  está cargado el archivo y la card debe mostrar "Próximamente". */
+  fileUrl: string | null
   /** Color de acento por norma */
   accent: string
 }
@@ -40,14 +41,14 @@ export const certifications: readonly Certification[] = [
   {
     slug: 'iso-9001',
     name: 'Sistema de Gestión de Calidad',
-    standard: 'ISO 9001:2015',
+    standard: 'ISO 9001:2015 — Certificado N° 1696',
     kind: 'iso-9001',
     issuer: 'IRAM — Instituto Argentino de Normalización y Certificación',
     verifyUrl: 'https://www.iram.org.ar',
     validity: 'Vigente',
     description:
       'Certificación del Sistema de Gestión de Calidad aplicado a la ingeniería, construcción y montaje en Petróleo y Gas.',
-    fileUrl: '/certs/iso-9001.pdf',
+    fileUrl: '/certs/Certificado1696.pdf',
     accent: '#136A26',
   },
   {
@@ -57,10 +58,10 @@ export const certifications: readonly Certification[] = [
     kind: 'iso-14001',
     issuer: 'IRAM — Instituto Argentino de Normalización y Certificación',
     verifyUrl: 'https://www.iram.org.ar',
-    validity: 'Vigente',
+    validity: 'Próximamente',
     description:
       'Gestión ambiental para la prevención de la contaminación y el cumplimiento legal en obras y operaciones.',
-    fileUrl: '/certs/iso-14001.pdf',
+    fileUrl: null,
     accent: '#1B8A33',
   },
   {
@@ -70,23 +71,10 @@ export const certifications: readonly Certification[] = [
     kind: 'iso-45001',
     issuer: 'IRAM — Instituto Argentino de Normalización y Certificación',
     verifyUrl: 'https://www.iram.org.ar',
-    validity: 'Vigente',
+    validity: 'Próximamente',
     description:
       'Sistema de gestión de Salud y Seguridad Ocupacional para la prevención de lesiones y enfermedades profesionales.',
-    fileUrl: '/certs/iso-45001.pdf',
+    fileUrl: null,
     accent: '#FF0001',
-  },
-  {
-    slug: 'sgi',
-    name: 'Sistema de Gestión Integrado',
-    standard: 'SGI — Calidad, Ambiente y SST',
-    kind: 'sgi',
-    issuer: 'GP Servicios SRL',
-    verifyUrl: 'https://www.iram.org.ar',
-    validity: 'Política institucional',
-    description:
-      'Política integrada que articula los compromisos de calidad, medio ambiente y seguridad ocupacional bajo un solo marco.',
-    fileUrl: '/certs/sgi-politica.pdf',
-    accent: '#32434F',
   },
 ] as const

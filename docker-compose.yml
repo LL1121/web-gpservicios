@@ -15,6 +15,15 @@ services:
       PORT: 3000
       HOSTNAME: 0.0.0.0
       NEXT_TELEMETRY_DISABLED: 1
+      # SMTP del formulario de contacto. Definí estos valores en el .env del
+      # servidor. Si quedan vacíos, el form devuelve un error claro al usuario.
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      CONTACT_TO_EMAIL: ${CONTACT_TO_EMAIL:-comercial@gpservicios.com.ar}
+      CONTACT_FROM_EMAIL: ${CONTACT_FROM_EMAIL:-}
 
     networks:
       - lyntrix_network
