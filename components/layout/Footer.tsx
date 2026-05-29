@@ -187,18 +187,25 @@ export default function Footer() {
             style={{ color: '#4A5568' }}
           >
             <p>© {new Date().getFullYear()} {company.legalName} — Todos los derechos reservados.</p>
-            <p>
-              Diseño y desarrollo:{' '}
+            <p className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span>Diseño y desarrollo:</span>
               <a
                 href="https://lyntrix.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold transition-colors hover:text-white"
-                style={{ color: '#8A9BAB' }}
+                aria-label="LYNTRIX — abrir sitio en pestaña nueva"
+                className="inline-flex items-center transition-opacity hover:opacity-80"
               >
-                LYNTRIX
-              </a>{' '}
-              — 2026
+                <Image
+                  src="/images/logolyntrix.png"
+                  alt="LYNTRIX"
+                  width={533}
+                  height={131}
+                  sizes="6rem"
+                  className="h-5 w-auto sm:h-6"
+                />
+              </a>
+              <span>— 2026</span>
             </p>
           </div>
         </div>
