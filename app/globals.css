@@ -3,15 +3,15 @@
 
 /* ─── GP Servicios SRL — Design System Tokens ─── */
 @theme {
-  /* Colors */
-  --color-gp-red:         #D0021B;
-  --color-gp-red-dark:    #A80016;
-  --color-gp-red-light:   #FF1A35;
-  --color-gp-green:       #2D7D46;
-  --color-gp-green-light: #3A9B5A;
-  --color-gp-slate:       #1A2535;
-  --color-gp-slate-light: #243348;
-  --color-gp-carbon:      #2C3848;
+  /* Colors — paleta oficial GP Servicios (guía del diseñador) */
+  --color-gp-red:         #FF0001;
+  --color-gp-red-dark:    #CC0001;
+  --color-gp-red-light:   #FF3334;
+  --color-gp-green:       #136A26;
+  --color-gp-green-light: #1B8A33;
+  --color-gp-slate:       #1A2228;
+  --color-gp-slate-light: #32434F;
+  --color-gp-carbon:      #32434F;
   --color-gp-white-ind:   #FFFFFF;
   --color-gp-gray-light:  #F4F5F7;
   --color-gp-gray-tech:   #E2E5E9;
@@ -32,8 +32,8 @@
 
 /* ─── Header divider tokens ─── */
 :root {
-  --primary-red: #bd1720;
-  --slate-tech: #1b232e;
+  --primary-red: #FF0001;
+  --slate-tech: #1A2228;
 }
 
 /* ─── Base Styles ─── */

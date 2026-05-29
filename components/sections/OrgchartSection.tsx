@@ -145,11 +145,11 @@ function DepartmentPanel({
     >
       <div
         className="border-b border-[--color-gp-gray-tech] px-4 py-4 sm:px-6"
-        style={{ background: '#1A2535' }}
+        style={{ background: '#1A2228' }}
       >
         <div className="flex items-start justify-between gap-2">
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase" style={{ color: '#2D7D46' }}>
+            <p className="text-xs font-semibold tracking-widest uppercase" style={{ color: '#136A26' }}>
               {activeData.role}
             </p>
             <p className="mt-0.5 text-base font-bold text-white font-[family-name:var(--font-barlow)]">
@@ -181,7 +181,7 @@ function DepartmentPanel({
         </p>
 
         <div>
-          <p className="mb-3 text-xs font-bold tracking-widest uppercase" style={{ color: '#1A2535' }}>
+          <p className="mb-3 text-xs font-bold tracking-widest uppercase" style={{ color: '#1A2228' }}>
             Funciones Clave
           </p>
           <ul className="space-y-2">
@@ -189,7 +189,7 @@ function DepartmentPanel({
               <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#4A5568' }}>
                 <span
                   className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full"
-                  style={{ background: '#2D7D46' }}
+                  style={{ background: '#136A26' }}
                 />
                 {r}
               </li>
@@ -198,7 +198,7 @@ function DepartmentPanel({
         </div>
 
         <div>
-          <p className="mb-3 text-xs font-bold tracking-widest uppercase" style={{ color: '#1A2535' }}>
+          <p className="mb-3 text-xs font-bold tracking-widest uppercase" style={{ color: '#1A2228' }}>
             Certificaciones
           </p>
           <div className="space-y-1.5">
@@ -206,9 +206,9 @@ function DepartmentPanel({
               <div
                 key={i}
                 className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium"
-                style={{ background: '#F4F5F7', color: '#1A2535' }}
+                style={{ background: '#F4F5F7', color: '#1A2228' }}
               >
-                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: '#D0021B' }} />
+                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: '#FF0001' }} />
                 {cert}
               </div>
             ))}
@@ -255,10 +255,10 @@ export default function OrgchartSection({ standalone = false }: { standalone?: b
           <SectionTag label="Staff" className="mb-4 justify-center" />
           <h2
             className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold sm:text-3xl lg:text-4xl"
-            style={{ color: '#1A2535' }}
+            style={{ color: '#1A2228' }}
           >
             Equipo técnico de{' '}
-            <span style={{ color: '#D0021B' }}>alta especialización</span>
+            <span style={{ color: '#FF0001' }}>alta especialización</span>
           </h2>
           <p className="mt-3 text-sm sm:text-base" style={{ color: '#8A9BAB' }}>
             Tocá un departamento para ver funciones y certificaciones
@@ -278,14 +278,14 @@ export default function OrgchartSection({ standalone = false }: { standalone?: b
                   onClick={() => handleNodeClick(n.id)}
                   className="flex min-h-[52px] w-full items-center justify-between rounded-xl border px-4 py-3 text-left transition-colors"
                   style={{
-                    borderColor: isActive ? '#D0021B' : '#E2E5E9',
-                    background: isActive ? '#1A2535' : '#FFFFFF',
+                    borderColor: isActive ? '#FF0001' : '#E2E5E9',
+                    background: isActive ? '#1A2228' : '#FFFFFF',
                   }}
                 >
                   <div>
                     <p
                       className="text-sm font-bold font-[family-name:var(--font-barlow)]"
-                      style={{ color: isActive ? '#FFFFFF' : '#1A2535' }}
+                      style={{ color: isActive ? '#FFFFFF' : '#1A2228' }}
                     >
                       {dept.label}
                     </p>
@@ -302,7 +302,7 @@ export default function OrgchartSection({ standalone = false }: { standalone?: b
                     viewBox="0 0 16 16"
                     className="h-4 w-4 flex-shrink-0 transition-transform"
                     style={{
-                      color: isActive ? '#D0021B' : '#8A9BAB',
+                      color: isActive ? '#FF0001' : '#8A9BAB',
                       transform: isActive ? 'rotate(90deg)' : 'none',
                     }}
                     fill="none"
@@ -334,9 +334,9 @@ export default function OrgchartSection({ standalone = false }: { standalone?: b
                       key={i}
                       d={`M ${c.from.x} ${c.from.y} C ${c.from.x} ${cp1y}, ${c.to.x} ${cp2y}, ${c.to.x} ${c.to.y}`}
                       fill="none"
-                      stroke={isActive ? '#D0021B' : '#E2E5E9'}
+                      stroke={isActive ? '#FF0001' : '#E2E5E9'}
                       strokeWidth={isActive ? 2 : 1.5}
-                      animate={{ stroke: isActive ? '#D0021B' : '#E2E5E9' }}
+                      animate={{ stroke: isActive ? '#FF0001' : '#E2E5E9' }}
                       transition={{ duration: 0.25 }}
                     />
                   )

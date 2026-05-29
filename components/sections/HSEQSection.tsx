@@ -63,8 +63,8 @@ export default function HSEQSection({ standalone = false }: { standalone?: boole
   }, [])
 
   return (
-    <section ref={sectionRef} id="politicas-gestion" style={{ background: '#1A2535' }}>
-      {!standalone && <CurveDivider fill="#1A2535" direction="up" />}
+    <section ref={sectionRef} id="politicas-gestion" style={{ background: '#1A2228' }}>
+      {!standalone && <CurveDivider fill="#1A2228" direction="up" />}
 
       <div
         className={`section-container max-w-7xl ${standalone ? '!pt-6 sm:!pt-8 lg:!pt-12' : '!pt-10 sm:!pt-12'}`}
@@ -77,7 +77,7 @@ export default function HSEQSection({ standalone = false }: { standalone?: boole
               className="mb-6 font-[family-name:var(--font-barlow)] text-2xl font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl xl:text-5xl"
             >
               HSEQ como{' '}
-              <span style={{ color: '#2D7D46' }}>columna vertebral</span>{' '}
+              <span style={{ color: '#136A26' }}>columna vertebral</span>{' '}
               de cada operación
             </h2>
             <p className="text-base lg:text-lg leading-relaxed mb-6" style={{ color: '#8A9BAB' }}>
@@ -90,10 +90,10 @@ export default function HSEQSection({ standalone = false }: { standalone?: boole
             {/* SGI Badge */}
             <div className="hseq-badge mt-8 flex max-w-full flex-wrap items-center gap-3 rounded-xl border border-white/10 px-4 py-4 sm:mt-10 sm:gap-4 sm:px-6" style={{ background: 'rgba(255,255,255,0.05)' }}>
               <div className="flex-shrink-0">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-12 h-12" style={{ color: '#2D7D46' }}>
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-12 h-12" style={{ color: '#136A26' }}>
                   <path d="M24 6 L38 12 V24 C38 34 32 42 24 44 C16 42 10 34 10 24 V12 Z" strokeLinejoin="round" />
                   <path d="M18 24 l4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="24" cy="24" r="2" fill="#2D7D46" />
+                  <circle cx="24" cy="24" r="2" fill="#136A26" />
                 </svg>
               </div>
               <div>
@@ -116,7 +116,7 @@ export default function HSEQSection({ standalone = false }: { standalone?: boole
               >
                 <span
                   className="flex-shrink-0 w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold font-[family-name:var(--font-barlow)]"
-                  style={{ background: 'rgba(45,125,70,0.2)', color: '#2D7D46' }}
+                  style={{ background: 'rgba(45,125,70,0.2)', color: '#136A26' }}
                 >
                   {c.num}
                 </span>
@@ -138,7 +138,7 @@ export default function HSEQSection({ standalone = false }: { standalone?: boole
             <div key={s.label} className="text-center">
               <p
                 className="font-[family-name:var(--font-barlow)] font-extrabold text-2xl lg:text-3xl"
-                style={{ color: '#D0021B' }}
+                style={{ color: '#FF0001' }}
               >
                 {s.value}
               </p>

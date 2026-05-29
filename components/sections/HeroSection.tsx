@@ -40,7 +40,7 @@ export default function HeroSection() {
           className="absolute inset-0 opacity-40"
           style={{
             background:
-              'radial-gradient(ellipse at 70% 50%, #2C3848 0%, #1A2535 60%, #0D1620 100%)',
+              'radial-gradient(ellipse at 70% 50%, #32434F 0%, #1A2228 60%, #0D1620 100%)',
           }}
         />
         {/* SVG clip-path to create the organic curved edge on the image side */}
@@ -64,8 +64,8 @@ export default function HeroSection() {
             />
             <defs>
               <linearGradient id="hero-img-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#2C3848" stopOpacity="0.7" />
-                <stop offset="50%" stopColor="#1A2535" stopOpacity="0.5" />
+                <stop offset="0%" stopColor="#32434F" stopOpacity="0.7" />
+                <stop offset="50%" stopColor="#1A2228" stopOpacity="0.5" />
                 <stop offset="100%" stopColor="#0D1620" stopOpacity="0.9" />
               </linearGradient>
             </defs>
@@ -75,7 +75,7 @@ export default function HeroSection() {
             className="absolute inset-0 opacity-50"
             style={{
               clipPath: 'polygon(20% 0%, 100% 0%, 100% 100%, 15% 100%, 8% 50%)',
-              background: 'linear-gradient(135deg, #243348 0%, #1A2535 100%)',
+              background: 'linear-gradient(135deg, #32434F 0%, #1A2228 100%)',
             }}
           />
         </div>
@@ -109,7 +109,7 @@ export default function HeroSection() {
             style={{ fontSize: 'clamp(1.875rem, 6vw, 4.5rem)' }}
           >
             Ingeniería, construcción y{' '}
-            <span style={{ color: '#bd1720' }}>montaje industrial</span>
+            <span style={{ color: '#FF0001' }}>montaje industrial</span>
           </h1>
 
           <p className="mb-8 max-w-4xl text-base font-normal leading-relaxed text-gray-300 sm:mb-10 sm:text-lg md:text-xl">
@@ -122,7 +122,7 @@ export default function HeroSection() {
               href="#explorar"
               className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 font-[family-name:var(--font-barlow)] sm:w-auto"
               style={{
-                background: '#bd1720',
+                background: '#FF0001',
                 boxShadow: '0 4px 20px rgba(189,23,32,0.4)',
               }}
             >
@@ -151,7 +151,7 @@ export default function HeroSection() {
               <div key={b.label} className="text-center">
                 <p
                   className="text-2xl font-extrabold leading-none font-[family-name:var(--font-barlow)]"
-                  style={{ color: '#bd1720' }}
+                  style={{ color: '#FF0001' }}
                 >
                   {b.label}
                 </p>

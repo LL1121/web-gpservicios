@@ -1,6 +1,6 @@
 /** Paths y tokens compartidos — proporción manual PDF (viewBox 1440×80) */
-export const SLATE = '#1b232e'
-export const RED = '#bd1720'
+export const SLATE = '#1A2228'
+export const RED = '#FF0001'
 
 /** Onda roja — solo aloja el bloque de identidad (izquierda) */
 export const RED_WAVE_PATH = 'M 0,0 L 0,80 C 420,80 650,25 900,20 L 1000,0 Z'

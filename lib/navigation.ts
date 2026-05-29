@@ -16,21 +16,21 @@ export const homeExploreLinks = [
     label: 'Quiénes somos',
     description:
       'Firma con actividad comercial desde 2013 y más de 20 años en montajes de oleoductos, gasoductos y piping.',
-    accent: '#2D7D46',
+    accent: '#136A26',
   },
   {
     href: '/politicas-gestion',
     label: 'Políticas de gestión',
     description:
       'Política de gestión y ocho compromisos del Sistema de Gestión Integrado.',
-    accent: '#1A2535',
+    accent: '#1A2228',
   },
   {
     href: '/servicios',
     label: 'Servicios',
     description:
       'Soldadura, conexión a pozo, pruebas hidráulicas, prefabricados, ingeniería civil, arenado y más.',
-    accent: '#D0021B',
+    accent: '#FF0001',
   },
   {
     href: '/clientes',
@@ -42,14 +42,14 @@ export const homeExploreLinks = [
     href: '/staff',
     label: 'Staff',
     description: 'Estructura organizacional y áreas de la empresa.',
-    accent: '#2C3848',
+    accent: '#32434F',
   },
   {
     href: '/contacto',
     label: 'Contacto',
     description:
       'Planta en Parque Industrial Centenario, domicilios fiscal y base, teléfonos y correos.',
-    accent: '#D0021B',
+    accent: '#FF0001',
   },
 ] as const
 

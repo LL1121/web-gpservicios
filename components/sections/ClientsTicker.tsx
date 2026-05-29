@@ -49,7 +49,7 @@ const clients = [
   {
     id: 'capex',
     name: 'CAPEX',
-    brandColor: '#1A2535',
+    brandColor: '#1A2228',
     logo: (
       <svg viewBox="0 0 90 32" className="h-8 w-auto">
         <text x="4" y="22" fontSize="16" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor" letterSpacing="2">
@@ -76,7 +76,7 @@ const clients = [
   {
     id: 'tecsa',
     name: 'TECSA',
-    brandColor: '#1A2535',
+    brandColor: '#1A2228',
     logo: (
       <svg viewBox="0 0 90 32" className="h-8 w-auto">
         <text x="4" y="22" fontSize="15" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor" letterSpacing="2">
@@ -187,10 +187,10 @@ export default function ClientsTicker({ standalone = false }: { standalone?: boo
           <SectionTag label="Clientes y Operadoras" className="mb-4 justify-center" />
           <h2
             className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold sm:text-3xl lg:text-4xl"
-            style={{ color: '#1A2535' }}
+            style={{ color: '#1A2228' }}
           >
             Las operadoras que{' '}
-            <span style={{ color: '#D0021B' }}>confían en GP</span>
+            <span style={{ color: '#FF0001' }}>confían en GP</span>
           </h2>
           <p className="mt-3 text-sm max-w-md mx-auto" style={{ color: '#8A9BAB' }}>
             Clientes y operadoras del sector Petróleo y Gas en Neuquén y la Patagonia.

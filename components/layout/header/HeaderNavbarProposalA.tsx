@@ -21,7 +21,7 @@ const RED_HREFS = new Set(['/', '/quienes-somos', '/politicas-gestion'])
 const redZoneLinks = mainNavLinks.filter(l => RED_HREFS.has(l.href))
 const slateNavLinks = mainNavLinks.filter(l => !RED_HREFS.has(l.href))
 
-const DARK_TEXT = '#1A2535'
+const DARK_TEXT = '#1A2228'
 
 export default function HeaderNavbarProposalA() {
   const pathname = usePathname()

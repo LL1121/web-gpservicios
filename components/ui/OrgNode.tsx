@@ -39,12 +39,12 @@ export default function OrgNode({
         width={width}
         height={height}
         rx={isRoot ? 10 : 8}
-        fill={isRoot ? '#D0021B' : isActive ? '#2C3848' : '#1A2535'}
-        stroke={isActive ? '#D0021B' : isRoot ? '#A80016' : '#2C3848'}
+        fill={isRoot ? '#FF0001' : isActive ? '#32434F' : '#1A2228'}
+        stroke={isActive ? '#FF0001' : isRoot ? '#CC0001' : '#32434F'}
         strokeWidth={isActive && !isRoot ? 1.5 : 1}
         animate={{
-          stroke: isActive && !isRoot ? '#D0021B' : isRoot ? '#A80016' : '#2C3848',
-          fill: isRoot ? '#D0021B' : isActive ? '#2C3848' : '#1A2535',
+          stroke: isActive && !isRoot ? '#FF0001' : isRoot ? '#CC0001' : '#32434F',
+          fill: isRoot ? '#FF0001' : isActive ? '#32434F' : '#1A2228',
         }}
         transition={{ duration: 0.2 }}
       />
@@ -56,7 +56,7 @@ export default function OrgNode({
           height={height}
           rx={8}
           fill="none"
-          stroke="#D0021B"
+          stroke="#FF0001"
           strokeWidth={3}
           opacity={0.2}
         />
@@ -91,7 +91,7 @@ export default function OrgNode({
 
       {/* Active indicator dot */}
       {isActive && !isRoot && (
-        <circle cx={width - 8} cy={8} r={4} fill="#D0021B" />
+        <circle cx={width - 8} cy={8} r={4} fill="#FF0001" />
       )}
     </motion.g>
   )

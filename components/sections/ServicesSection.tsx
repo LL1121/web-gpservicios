@@ -8,6 +8,7 @@ import ServiceCard from '@/components/ui/ServiceCard'
 import SectionTag from '@/components/ui/SectionTag'
 import { civilEngineeringTasks, servicesCatalog } from '@/lib/site-content'
 import type { ServiceSlug } from '@/lib/site-content'
+import { serviceImages } from '@/lib/site-images'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -58,19 +59,18 @@ const serviceIcons: Record<ServiceSlug, React.ReactNode> = {
   ),
 }
 
-const gradients: Record<ServiceSlug, { from: string; to: string; tagline: string }> = {
-  'soldadura-montaje': { from: '#1A2535', to: '#2C3848', tagline: 'Core operativo' },
-  'conexion-pozo': { from: '#1F2D3F', to: '#243348', tagline: 'Campo' },
-  'pruebas-hidraulicas': { from: '#1A2535', to: '#2A3441', tagline: 'Integridad' },
-  'prefabricado-lac-pluspetrol': { from: '#1F2D3F', to: '#2C3848', tagline: 'Pluspetrol' },
-  'modificacion-descargadero': { from: '#1A2535', to: '#243348', tagline: 'Descargadero' },
-  'ingenieria-civil': { from: '#1A2535', to: '#243348', tagline: 'Obras civiles' },
-  'arenado-pintura': { from: '#1F2D3F', to: '#2C3848', tagline: 'Recubrimiento' },
-  'movimiento-suelo': { from: '#1A2535', to: '#2C3848', tagline: 'Terreno' },
+const taglines: Record<ServiceSlug, string> = {
+  'soldadura-montaje': 'Core operativo',
+  'conexion-pozo': 'Campo',
+  'pruebas-hidraulicas': 'Integridad',
+  'prefabricado-lac-pluspetrol': 'Pluspetrol',
+  'modificacion-descargadero': 'Descargadero',
+  'ingenieria-civil': 'Obras civiles',
+  'arenado-pintura': 'Recubrimiento',
+  'movimiento-suelo': 'Terreno',
 }
 
 const serviceCards = servicesCatalog.map(s => {
-  const g = gradients[s.slug]
   const description =
     s.slug === 'ingenieria-civil'
       ? `${s.shortDescription} Incluye: ${civilEngineeringTasks.join('; ')}.`
@@ -79,11 +79,10 @@ const serviceCards = servicesCatalog.map(s => {
   return {
     slug: s.slug,
     title: s.label,
-    tagline: g.tagline,
+    tagline: taglines[s.slug],
     description,
     icon: serviceIcons[s.slug],
-    gradientFrom: g.from,
-    gradientTo: g.to,
+    image: serviceImages[s.slug],
   }
 })
 
@@ -132,10 +131,10 @@ export default function ServicesSection({ standalone = false }: { standalone?: b
             <SectionTag label="Servicios" className="mb-4" />
             <h2
               className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold sm:text-3xl lg:text-4xl xl:text-5xl"
-              style={{ color: '#1A2535' }}
+              style={{ color: '#1A2228' }}
             >
               Gama de servicios{' '}
-              <span style={{ color: '#D0021B' }}>para Oil & Gas</span>
+              <span style={{ color: '#FF0001' }}>para Oil & Gas</span>
             </h2>
           </div>
           <p className="mt-4 max-w-full text-sm sm:text-base lg:mt-0 lg:max-w-md lg:text-right" style={{ color: '#8A9BAB' }}>
@@ -157,7 +156,7 @@ export default function ServicesSection({ standalone = false }: { standalone?: b
             <Link
               href="/servicios"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 font-[family-name:var(--font-barlow)]"
-              style={{ background: '#1A2535', boxShadow: '0 4px 16px rgba(26,37,53,0.2)' }}
+              style={{ background: '#1A2228', boxShadow: '0 4px 16px rgba(26,37,53,0.2)' }}
             >
               Ver todos los servicios
               <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">

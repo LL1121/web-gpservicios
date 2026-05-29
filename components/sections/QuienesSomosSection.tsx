@@ -10,7 +10,7 @@ export default function QuienesSomosSection({ standalone = false }: { standalone
       title={
         <>
           Ingeniería, construcción y montaje{' '}
-          <span style={{ color: '#D0021B' }}>en Petróleo y Gas</span>
+          <span style={{ color: '#FF0001' }}>en Petróleo y Gas</span>
         </>
       }
       description={quienesSomos.intro}
@@ -38,7 +38,7 @@ export default function QuienesSomosSection({ standalone = false }: { standalone
             >
               <p
                 className="text-sm font-bold font-[family-name:var(--font-barlow)] mb-2"
-                style={{ color: '#1A2535' }}
+                style={{ color: '#1A2228' }}
               >
                 {card.title}
               </p>

@@ -39,17 +39,17 @@ export default function SectionShell({
         }`}
       >
         <header className="mb-8 max-w-3xl sm:mb-12 lg:mb-16">
-          <SectionTag label={tag} className="mb-4" light={background === '#1A2535'} />
+          <SectionTag label={tag} className="mb-4" light={background === '#1A2228'} />
           <h2
             className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl"
-            style={{ color: background === '#1A2535' ? '#FFFFFF' : '#1A2535' }}
+            style={{ color: background === '#1A2228' ? '#FFFFFF' : '#1A2228' }}
           >
             {title}
           </h2>
           {description && (
             <p
               className="mt-4 text-[15px] leading-relaxed sm:text-base lg:text-lg"
-              style={{ color: background === '#1A2535' ? '#8A9BAB' : '#4A5568' }}
+              style={{ color: background === '#1A2228' ? '#8A9BAB' : '#4A5568' }}
             >
               {description}
             </p>

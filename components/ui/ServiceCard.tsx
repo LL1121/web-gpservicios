@@ -9,8 +9,8 @@ interface ServiceCardProps {
   description: string
   tagline: string
   icon: React.ReactNode
-  gradientFrom: string
-  gradientTo: string
+  /** URL de imagen de fondo (Unsplash placeholder o foto real desde /public) */
+  image: string
 }
 
 export default function ServiceCard({
@@ -19,29 +19,36 @@ export default function ServiceCard({
   description,
   tagline,
   icon,
-  gradientFrom,
-  gradientTo,
+  image,
 }: ServiceCardProps) {
   return (
     <motion.div
-      className="relative group rounded-xl overflow-hidden min-h-[240px] sm:min-h-[280px]"
-      style={{ background: '#2C3848' }}
+      className="group relative min-h-[240px] overflow-hidden rounded-xl sm:min-h-[280px]"
+      style={{ background: '#1A2228' }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3, ease: [0.215, 0.61, 0.355, 1] }}
     >
+      {/* Foto de fondo — grayscale + oscurecida por defecto, color al hover */}
       <motion.div
-        className="service-card-bg absolute inset-0"
-        style={{
-          background: `linear-gradient(135deg, ${gradientFrom} 0%, ${gradientTo} 100%)`,
-        }}
-        initial={{ filter: 'grayscale(1) brightness(0.4)' }}
+        className="service-card-bg absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${image})` }}
+        initial={{ filter: 'grayscale(1) brightness(0.35)' }}
         whileHover={{ filter: 'grayscale(0) brightness(0.55)' }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
       />
+      {/* Overlay degradado para contraste del texto */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(180deg, rgba(26,34,40,0.35) 0%, rgba(26,34,40,0.55) 55%, rgba(26,34,40,0.92) 100%)',
+        }}
+        aria-hidden="true"
+      />
 
       <motion.div
-        className="service-card-accent absolute left-0 top-0 bottom-0 w-1 origin-bottom"
-        style={{ background: '#D0021B' }}
+        className="service-card-accent absolute bottom-0 left-0 top-0 w-1 origin-bottom"
+        style={{ background: '#FF0001' }}
         initial={{ scaleY: 0 }}
         whileHover={{ scaleY: 1 }}
         transition={{ duration: 0.3, ease: [0.215, 0.61, 0.355, 1] }}
@@ -50,14 +57,14 @@ export default function ServiceCard({
       <div className="relative z-10 flex h-full min-h-[240px] flex-col p-5 sm:min-h-[280px] sm:p-7">
         <div
           className="mb-4 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg sm:h-12 sm:w-12"
-          style={{ background: 'rgba(255,255,255,0.1)' }}
+          style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(4px)' }}
         >
-          <span style={{ color: '#2D7D46' }}>{icon}</span>
+          <span style={{ color: '#FFFFFF' }}>{icon}</span>
         </div>
 
         <p
-          className="mb-2 text-[11px] font-semibold tracking-[0.18em] uppercase sm:text-xs"
-          style={{ color: '#2D7D46' }}
+          className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] sm:text-xs"
+          style={{ color: '#1B8A33' }}
         >
           {tagline}
         </p>
@@ -67,8 +74,7 @@ export default function ServiceCard({
         </h3>
 
         <motion.p
-          className="service-card-desc flex-1 text-sm leading-relaxed"
-          style={{ color: '#8A9BAB' }}
+          className="service-card-desc flex-1 text-sm leading-relaxed text-white/85"
           initial={{ opacity: 0, y: 10 }}
           whileHover={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.05 }}
@@ -84,8 +90,8 @@ export default function ServiceCard({
         >
           <Link
             href="/servicios"
-            className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold transition-colors hover:text-[--color-gp-red-light]"
-            style={{ color: '#D0021B' }}
+            className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-white transition-colors hover:text-[--color-gp-red-light]"
+            style={{ color: '#FF3334' }}
           >
             Ver servicio
             <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5">

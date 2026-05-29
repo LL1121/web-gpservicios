@@ -11,10 +11,10 @@ export default function ContactSection({ standalone = false }: { standalone?: bo
           <SectionTag label="Contacto" className="mb-4" />
           <h1
             className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl"
-            style={{ color: '#1A2535' }}
+            style={{ color: '#1A2228' }}
           >
             Estamos en{' '}
-            <span style={{ color: '#bd1720' }}>Centenario, Neuquén</span>
+            <span style={{ color: '#FF0001' }}>Centenario, Neuquén</span>
           </h1>
           <p className="mt-4 text-base lg:text-lg leading-relaxed" style={{ color: '#4A5568' }}>
             Datos de contacto de {company.legalName} — planta industrial, domicilios fiscal y base,
@@ -32,7 +32,7 @@ export default function ContactSection({ standalone = false }: { standalone?: bo
               >
                 <h2
                   className="mb-4 text-sm font-bold tracking-widest uppercase font-[family-name:var(--font-barlow)]"
-                  style={{ color: '#2D7D46' }}
+                  style={{ color: '#136A26' }}
                 >
                   {loc.title}
                 </h2>
@@ -64,8 +64,8 @@ export default function ContactSection({ standalone = false }: { standalone?: bo
                     </p>
                     <a
                       href={phone.href}
-                      className="text-base font-semibold transition-colors hover:text-[#bd1720] font-[family-name:var(--font-barlow)]"
-                      style={{ color: '#1A2535' }}
+                      className="text-base font-semibold transition-colors hover:text-[#FF0001] font-[family-name:var(--font-barlow)]"
+                      style={{ color: '#1A2228' }}
                     >
                       {phone.value}
                     </a>
@@ -85,8 +85,8 @@ export default function ContactSection({ standalone = false }: { standalone?: bo
                 </p>
                 <a
                   href={`mailto:${item.email}`}
-                  className="break-all text-base font-semibold transition-colors hover:text-[#bd1720] font-[family-name:var(--font-barlow)] sm:text-lg"
-                  style={{ color: '#1A2535' }}
+                  className="break-all text-base font-semibold transition-colors hover:text-[#FF0001] font-[family-name:var(--font-barlow)] sm:text-lg"
+                  style={{ color: '#1A2228' }}
                 >
                   {item.email}
                 </a>
@@ -104,8 +104,8 @@ export default function ContactSection({ standalone = false }: { standalone?: bo
                 href={company.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg font-semibold transition-colors hover:text-[#bd1720] font-[family-name:var(--font-barlow)]"
-                style={{ color: '#1A2535' }}
+                className="text-lg font-semibold transition-colors hover:text-[#FF0001] font-[family-name:var(--font-barlow)]"
+                style={{ color: '#1A2228' }}
               >
                 gpservicios.com.ar
               </a>

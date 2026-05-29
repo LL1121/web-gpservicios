@@ -4,7 +4,7 @@ import { company, contact, quienesSomos } from '@/lib/site-content'
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#1A2535' }}>
+    <footer style={{ background: '#1A2228' }}>
       <svg
         viewBox="0 0 1440 80"
         preserveAspectRatio="none"
@@ -13,7 +13,7 @@ export default function Footer() {
       >
         <path
           d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,60 L1440,80 L0,80 Z"
-          fill="#1A2535"
+          fill="#1A2228"
         />
       </svg>
 
@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <svg viewBox="0 0 48 48" className="w-12 h-12 flex-shrink-0">
-                <rect width="48" height="48" rx="4" fill="#D0021B" />
+                <rect width="48" height="48" rx="4" fill="#FF0001" />
                 <text
                   x="24"
                   y="32"
@@ -50,7 +50,7 @@ export default function Footer() {
             </p>
             <div
               className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-xs"
-              style={{ background: 'rgba(45,125,70,0.15)', color: '#3A9B5A' }}
+              style={{ background: 'rgba(45,125,70,0.15)', color: '#1B8A33' }}
             >
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4">
                 <path d="M8 2L13 4V9C13 12.3 11 14.5 8 15C5 14.5 3 12.3 3 9V4Z" strokeLinejoin="round" />
@@ -63,7 +63,7 @@ export default function Footer() {
           <div>
             <h4
               className="text-xs font-bold tracking-[0.2em] uppercase mb-5 font-[family-name:var(--font-barlow)]"
-              style={{ color: '#2D7D46' }}
+              style={{ color: '#136A26' }}
             >
               Servicios
             </h4>
@@ -85,7 +85,7 @@ export default function Footer() {
           <div>
             <h4
               className="text-xs font-bold tracking-[0.2em] uppercase mb-5 font-[family-name:var(--font-barlow)]"
-              style={{ color: '#2D7D46' }}
+              style={{ color: '#136A26' }}
             >
               Empresa
             </h4>
@@ -107,7 +107,7 @@ export default function Footer() {
           <div>
             <h4
               className="text-xs font-bold tracking-[0.2em] uppercase mb-5 font-[family-name:var(--font-barlow)]"
-              style={{ color: '#2D7D46' }}
+              style={{ color: '#136A26' }}
             >
               Contacto
             </h4>
@@ -117,7 +117,7 @@ export default function Footer() {
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   className="w-4 h-4 flex-shrink-0 mt-0.5"
-                  style={{ color: '#D0021B' }}
+                  style={{ color: '#FF0001' }}
                 >
                   <path
                     fillRule="evenodd"
@@ -143,7 +143,7 @@ export default function Footer() {
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       className="w-4 h-4 flex-shrink-0 mt-0.5"
-                      style={{ color: '#D0021B' }}
+                      style={{ color: '#FF0001' }}
                     >
                       <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
                       <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
@@ -169,7 +169,7 @@ export default function Footer() {
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   className="w-4 h-4 flex-shrink-0"
-                  style={{ color: '#D0021B' }}
+                  style={{ color: '#FF0001' }}
                 >
                   <path
                     fillRule="evenodd"

@@ -17,7 +17,7 @@ export default function HomeSectionNav() {
           <SectionTag label="Navegación del sitio" className="justify-center mb-4" />
           <h2
             className="font-[family-name:var(--font-barlow)] font-extrabold text-2xl lg:text-3xl"
-            style={{ color: '#1A2535' }}
+            style={{ color: '#1A2228' }}
           >
             ¿Querés profundizar?
           </h2>
@@ -45,8 +45,8 @@ export default function HomeSectionNav() {
                   style={{ background: item.accent }}
                 />
                 <h3
-                  className="font-[family-name:var(--font-barlow)] font-bold text-lg mb-2 transition-colors group-hover:text-[#D0021B]"
-                  style={{ color: '#1A2535' }}
+                  className="font-[family-name:var(--font-barlow)] font-bold text-lg mb-2 transition-colors group-hover:text-[#FF0001]"
+                  style={{ color: '#1A2228' }}
                 >
                   {item.label}
                 </h3>
@@ -55,7 +55,7 @@ export default function HomeSectionNav() {
                 </p>
                 <span
                   className="mt-4 inline-flex items-center gap-1 text-xs font-semibold"
-                  style={{ color: '#2D7D46' }}
+                  style={{ color: '#136A26' }}
                 >
                   Ir a la sección
                   <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth={2}>
