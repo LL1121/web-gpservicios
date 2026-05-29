@@ -90,21 +90,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Service cards: descripción visible en touch (sin hover) */
-@media (hover: none), (max-width: 1023px) {
-  .service-card-desc,
-  .service-card-cta {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .service-card-bg {
-    filter: grayscale(0.35) brightness(0.5) !important;
-  }
-
-  .service-card-accent {
-    transform: scaleY(1) !important;
-  }
+/* Line-clamp utility (descripción de cards) */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ─── Utility Classes ─── */

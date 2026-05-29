@@ -6,7 +6,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ServiceCard from '@/components/ui/ServiceCard'
 import SectionTag from '@/components/ui/SectionTag'
-import { civilEngineeringTasks, servicesCatalog } from '@/lib/site-content'
+import { servicesCatalog } from '@/lib/site-content'
 import type { ServiceSlug } from '@/lib/site-content'
 import { serviceImages } from '@/lib/site-images'
 
@@ -59,32 +59,14 @@ const serviceIcons: Record<ServiceSlug, React.ReactNode> = {
   ),
 }
 
-const taglines: Record<ServiceSlug, string> = {
-  'soldadura-montaje': 'Core operativo',
-  'conexion-pozo': 'Campo',
-  'pruebas-hidraulicas': 'Integridad',
-  'prefabricado-lac-pluspetrol': 'Pluspetrol',
-  'modificacion-descargadero': 'Descargadero',
-  'ingenieria-civil': 'Obras civiles',
-  'arenado-pintura': 'Recubrimiento',
-  'movimiento-suelo': 'Terreno',
-}
-
-const serviceCards = servicesCatalog.map(s => {
-  const description =
-    s.slug === 'ingenieria-civil'
-      ? `${s.shortDescription} Incluye: ${civilEngineeringTasks.join('; ')}.`
-      : s.shortDescription
-
-  return {
-    slug: s.slug,
-    title: s.label,
-    tagline: taglines[s.slug],
-    description,
-    icon: serviceIcons[s.slug],
-    image: serviceImages[s.slug],
-  }
-})
+const serviceCards = servicesCatalog.map(s => ({
+  slug: s.slug,
+  title: s.label,
+  tagline: s.tagline,
+  description: s.shortDescription,
+  icon: serviceIcons[s.slug],
+  image: serviceImages[s.slug],
+}))
 
 export default function ServicesSection({ standalone = false }: { standalone?: boolean }) {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -143,9 +125,9 @@ export default function ServicesSection({ standalone = false }: { standalone?: b
           </p>
         </div>
 
-        <div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="services-grid grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {serviceCards.map(s => (
-            <div key={s.slug} className="service-card-wrapper">
+            <div key={s.slug} className="service-card-wrapper h-full">
               <ServiceCard {...s} />
             </div>
           ))}

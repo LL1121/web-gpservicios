@@ -4,13 +4,24 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { motion } from 'framer-motion'
 import SectionTag from '@/components/ui/SectionTag'
-// Client logos as SVG text/shapes — each with their brand identity color
-// In production, replace these with actual SVG logo files from /public/logos/
-const clients = [
+/**
+ * Logos en SVG estilizados con la identidad de cada operadora.
+ * `url` = sitio oficial (verificar con el cliente y ajustar si difiere).
+ */
+interface ClientItem {
+  id: string
+  name: string
+  brandColor: string
+  logo: React.ReactNode
+  url?: string
+}
+
+const clients: ClientItem[] = [
   {
     id: 'ypf',
     name: 'YPF',
     brandColor: '#005DA4',
+    url: 'https://www.ypf.com',
     logo: (
       <svg viewBox="0 0 80 32" className="h-8 w-auto">
         <rect width="80" height="32" rx="4" fill="currentColor" />
@@ -24,6 +35,7 @@ const clients = [
     id: 'exxon',
     name: 'ExxonMobil',
     brandColor: '#C8102E',
+    url: 'https://corporate.exxonmobil.com.ar',
     logo: (
       <svg viewBox="0 0 120 32" className="h-8 w-auto">
         <text x="4" y="24" fontSize="18" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor" letterSpacing="-0.5">
@@ -38,6 +50,7 @@ const clients = [
     id: 'pluspetrol',
     name: 'Pluspetrol',
     brandColor: '#005BAA',
+    url: 'https://www.pluspetrol.net',
     logo: (
       <svg viewBox="0 0 120 32" className="h-8 w-auto">
         <text x="4" y="22" fontSize="13" fontWeight="700" fontFamily="Barlow, sans-serif" fill="currentColor">
@@ -50,6 +63,7 @@ const clients = [
     id: 'capex',
     name: 'CAPEX',
     brandColor: '#1A2228',
+    url: 'https://www.capex.com.ar',
     logo: (
       <svg viewBox="0 0 90 32" className="h-8 w-auto">
         <text x="4" y="22" fontSize="16" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor" letterSpacing="2">
@@ -60,8 +74,9 @@ const clients = [
   },
   {
     id: 'gyp',
-    name: 'Gas y Petróleo',
+    name: 'Gas y Petróleo del Neuquén',
     brandColor: '#E8751A',
+    url: 'https://www.gypnqn.com.ar',
     logo: (
       <svg viewBox="0 0 80 32" className="h-8 w-auto">
         <text x="4" y="24" fontSize="22" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor">
@@ -77,6 +92,7 @@ const clients = [
     id: 'tecsa',
     name: 'TECSA',
     brandColor: '#1A2228',
+    url: 'https://www.tecsa.com.ar',
     logo: (
       <svg viewBox="0 0 90 32" className="h-8 w-auto">
         <text x="4" y="22" fontSize="15" fontWeight="800" fontFamily="Barlow, sans-serif" fill="currentColor" letterSpacing="2">
@@ -132,17 +148,33 @@ const clients = [
   },
 ]
 
-function ClientLogo({ client }: { client: typeof clients[0] }) {
-  return (
+function ClientLogo({ client }: { client: ClientItem }) {
+  const motionInner = (
     <motion.div
       className="flex flex-shrink-0 items-center justify-center px-5 py-4 sm:px-8"
-      style={{ color: '#C8CBD0' }} // grayscale default
+      style={{ color: '#C8CBD0' }}
       whileHover={{ color: client.brandColor, scale: 1.08 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      title={client.name}
+      title={client.url ? `${client.name} — ir al sitio oficial` : client.name}
     >
       {client.logo}
     </motion.div>
+  )
+
+  if (!client.url) {
+    return <div aria-label={client.name}>{motionInner}</div>
+  }
+
+  return (
+    <a
+      href={client.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${client.name} — abrir sitio oficial en pestaña nueva`}
+      className="rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[--color-gp-red]"
+    >
+      {motionInner}
+    </a>
   )
 }
 
@@ -221,9 +253,8 @@ export default function ClientsTicker({ standalone = false }: { standalone?: boo
           </div>
         </div>
 
-        {/* Bottom note */}
         <p className="text-center text-xs mt-6" style={{ color: '#C8CBD0' }}>
-          Pasá el cursor sobre cada logo para ver la identidad de la operadora
+          Hacé clic en cada logo para ir al sitio oficial de la operadora
         </p>
       </div>
     </section>

@@ -8,12 +8,13 @@
  * En el resto, el top es claro → texto oscuro, transiciona a blanco cuando aparece la onda al scrollear.
  */
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { mainNavLinks } from '@/lib/navigation'
 import WaveBackground from './WaveBackground'
-import { RED, SLATE } from './wave-assets'
+import { SLATE } from './wave-assets'
 
 const SCROLL_THRESHOLD = 40
 
@@ -59,7 +60,6 @@ export default function HeaderNavbarProposalA() {
   const waveVisible = isScrolled
   const lightOnDark = isHome || waveVisible || mobileOpen
   const linkColor = lightOnDark ? '#FFFFFF' : DARK_TEXT
-  const logoSubColor = lightOnDark ? 'rgba(255,255,255,0.75)' : 'rgba(26,37,53,0.65)'
   const hamburgerColor = lightOnDark ? '#FFFFFF' : DARK_TEXT
 
   const logoTransform =
@@ -94,30 +94,19 @@ export default function HeaderNavbarProposalA() {
 
         <Link
           href="/"
-          className="absolute top-1/2 left-4 z-30 flex max-w-[calc(100%-4.5rem)] items-center gap-2 select-none transition-[color,transform] duration-300 ease-out sm:gap-2.5 lg:left-1/2 lg:max-w-none lg:gap-3"
+          className="absolute top-1/2 left-4 z-30 flex select-none items-center transition-[transform] duration-300 ease-out lg:left-1/2"
           style={{ transform: logoTransform }}
-          aria-label="GP Servicios — Inicio"
+          aria-label="GP Servicios SRL — Inicio"
         >
-          <div
-            className="rounded-sm bg-white px-2 py-0.5 text-sm font-black tracking-tighter font-[family-name:var(--font-barlow)] sm:px-2.5 sm:py-1 sm:text-base"
-            style={{ color: RED }}
-          >
-            GP
-          </div>
-          <div
-            className="flex min-w-0 flex-col font-bold leading-tight font-[family-name:var(--font-barlow)] transition-colors duration-300 ease-out"
-            style={{ color: linkColor }}
-          >
-            <span className="truncate text-[11px] tracking-[0.1em] sm:text-xs md:text-sm">
-              GP SERVICIOS
-            </span>
-            <span
-              className="hidden text-[9px] font-[family-name:var(--font-inter)] font-medium tracking-[0.2em] transition-colors duration-300 ease-out sm:block sm:text-[10px]"
-              style={{ color: logoSubColor }}
-            >
-              S.R.L.
-            </span>
-          </div>
+          <Image
+            src="/images/logogp.png"
+            alt="GP Servicios SRL"
+            width={325}
+            height={174}
+            priority
+            sizes="(min-width: 1024px) 12rem, 9rem"
+            className="h-9 w-auto sm:h-10 lg:h-11"
+          />
         </Link>
 
         <div className="absolute top-[calc(50%-10px)] left-3 z-30 hidden -translate-y-1/2 items-center gap-5 sm:left-4 lg:left-6 lg:flex lg:gap-6 xl:left-8 xl:gap-8">

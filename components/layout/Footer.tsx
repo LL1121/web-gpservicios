@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { mainNavLinks, services } from '@/lib/navigation'
 import { company, contact, quienesSomos } from '@/lib/site-content'
@@ -20,31 +21,20 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 pb-8 pt-12 sm:px-6 sm:pt-16 lg:px-8">
         <div className="mb-10 grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-4 lg:mb-14">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-              <svg viewBox="0 0 48 48" className="w-12 h-12 flex-shrink-0">
-                <rect width="48" height="48" rx="4" fill="#FF0001" />
-                <text
-                  x="24"
-                  y="32"
-                  textAnchor="middle"
-                  fontSize="22"
-                  fontWeight="800"
-                  fontFamily="Barlow, sans-serif"
-                  fill="white"
-                  letterSpacing="-1"
-                >
-                  GP
-                </text>
-              </svg>
-              <div>
-                <span className="block text-sm font-bold tracking-widest uppercase text-white font-[family-name:var(--font-barlow)]">
-                  GP SERVICIOS
-                </span>
-                <span className="block text-xs tracking-[0.3em] uppercase" style={{ color: '#8A9BAB' }}>
-                  S.R.L.
-                </span>
-              </div>
-            </div>
+            <Image
+              src="/images/logogp.png"
+              alt="GP Servicios SRL"
+              width={325}
+              height={174}
+              sizes="13rem"
+              className="mb-5 h-12 w-auto sm:h-14"
+            />
+            <span
+              className="mb-3 block text-xs font-semibold uppercase tracking-[0.3em]"
+              style={{ color: '#8A9BAB' }}
+            >
+              {company.legalName}
+            </span>
             <p className="text-sm leading-relaxed mb-5" style={{ color: '#8A9BAB' }}>
               {company.tagline} {quienesSomos.objetivo}
             </p>
