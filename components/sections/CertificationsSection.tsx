@@ -299,7 +299,15 @@ export default function CertificationsSection({ standalone = false }: { standalo
           </p>
         </header>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div
+          className={
+            certifications.length === 1
+              ? 'mx-auto max-w-md'
+              : certifications.length === 2
+                ? 'mx-auto grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-2'
+                : 'grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3'
+          }
+        >
           {certifications.map(cert => (
             <CertCard
               key={cert.slug}

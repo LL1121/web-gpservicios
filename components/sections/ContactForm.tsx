@@ -28,7 +28,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100 sm:w-auto"
+      className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100 sm:w-auto"
       style={{ background: '#FF0001', boxShadow: '0 4px 18px rgba(255,0,1,0.35)' }}
     >
       {pending ? (

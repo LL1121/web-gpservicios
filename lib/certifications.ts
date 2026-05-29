@@ -37,6 +37,13 @@ export interface Certification {
   accent: string
 }
 
+/**
+ * Para sumar una certificación nueva:
+ *   1. Dropeá el PDF en `public/certs/<archivo>.pdf`
+ *   2. Agregá una entrada con `fileUrl: "/certs/<archivo>.pdf"`
+ *
+ * Mantené `fileUrl: null` solo si querés mostrar la card como "Próximamente".
+ */
 export const certifications: readonly Certification[] = [
   {
     slug: 'iso-9001',
@@ -50,31 +57,5 @@ export const certifications: readonly Certification[] = [
       'Certificación del Sistema de Gestión de Calidad aplicado a la ingeniería, construcción y montaje en Petróleo y Gas.',
     fileUrl: '/certs/Certificado1696.pdf',
     accent: '#136A26',
-  },
-  {
-    slug: 'iso-14001',
-    name: 'Sistema de Gestión Ambiental',
-    standard: 'ISO 14001:2015',
-    kind: 'iso-14001',
-    issuer: 'IRAM — Instituto Argentino de Normalización y Certificación',
-    verifyUrl: 'https://www.iram.org.ar',
-    validity: 'Próximamente',
-    description:
-      'Gestión ambiental para la prevención de la contaminación y el cumplimiento legal en obras y operaciones.',
-    fileUrl: null,
-    accent: '#1B8A33',
-  },
-  {
-    slug: 'iso-45001',
-    name: 'Salud y Seguridad Ocupacional',
-    standard: 'ISO 45001:2018',
-    kind: 'iso-45001',
-    issuer: 'IRAM — Instituto Argentino de Normalización y Certificación',
-    verifyUrl: 'https://www.iram.org.ar',
-    validity: 'Próximamente',
-    description:
-      'Sistema de gestión de Salud y Seguridad Ocupacional para la prevención de lesiones y enfermedades profesionales.',
-    fileUrl: null,
-    accent: '#FF0001',
   },
 ] as const
