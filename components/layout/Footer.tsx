@@ -190,7 +190,7 @@ export default function Footer() {
             <p className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
               <span>Diseño y desarrollo:</span>
               <a
-                href="https://lyntrix.dev"
+                href="https://lyntrix.com.ar/en"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LYNTRIX — abrir sitio en pestaña nueva"
@@ -201,8 +201,8 @@ export default function Footer() {
                   alt="LYNTRIX"
                   width={533}
                   height={131}
-                  sizes="6rem"
-                  className="h-5 w-auto sm:h-6"
+                  sizes="4rem"
+                  className="h-3.5 w-auto sm:h-4"
                 />
               </a>
               <span>— 2026</span>

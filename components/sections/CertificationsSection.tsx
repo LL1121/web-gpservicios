@@ -12,8 +12,8 @@ function CertCard({ cert, onView }: { cert: Certification; onView: () => void })
     <motion.article
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25, ease: [0.215, 0.61, 0.355, 1] }}
-      className="group flex h-full flex-col overflow-hidden rounded-xl border bg-white shadow-sm"
-      style={{ borderColor: '#E2E5E9' }}
+      className="group flex h-full flex-col overflow-hidden rounded-xl border bg-white shadow-md"
+      style={{ borderColor: '#E2E5E9', boxShadow: '0 8px 28px -10px rgba(26,34,40,0.18)' }}
     >
       <div
         className="relative flex h-44 items-center justify-center overflow-hidden"
@@ -157,8 +157,8 @@ function CertModal({ cert, onClose }: { cert: CertWithFile; onClose: () => void 
         className="relative flex max-h-[95vh] w-full max-w-5xl flex-col overflow-hidden rounded-xl bg-white shadow-2xl"
       >
         <header
-          className="flex items-start justify-between gap-3 border-b px-4 py-3 sm:px-6 sm:py-4"
-          style={{ borderColor: '#E2E5E9' }}
+          className="flex items-start justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4"
+          style={{ background: '#1A2228' }}
         >
           <div className="min-w-0">
             <p
@@ -167,10 +167,7 @@ function CertModal({ cert, onClose }: { cert: CertWithFile; onClose: () => void 
             >
               {cert.standard}
             </p>
-            <h2
-              className="mt-0.5 truncate font-[family-name:var(--font-barlow)] text-base font-bold sm:text-lg"
-              style={{ color: '#1A2228' }}
-            >
+            <h2 className="mt-0.5 truncate font-[family-name:var(--font-barlow)] text-base font-bold text-white sm:text-lg">
               {cert.name}
             </h2>
           </div>
@@ -178,8 +175,8 @@ function CertModal({ cert, onClose }: { cert: CertWithFile; onClose: () => void 
             <a
               href={cert.fileUrl}
               download
-              className="hidden items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold transition-colors hover:bg-[#F4F5F7] sm:inline-flex"
-              style={{ borderColor: '#E2E5E9', color: '#1A2228' }}
+              className="hidden items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold text-white/85 transition-colors hover:bg-white/10 hover:text-white sm:inline-flex"
+              style={{ borderColor: 'rgba(255,255,255,0.18)' }}
             >
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.6} className="h-3.5 w-3.5">
                 <path d="M8 2v8M5 7l3 3 3-3M3 13h10" strokeLinecap="round" strokeLinejoin="round" />
@@ -190,7 +187,7 @@ function CertModal({ cert, onClose }: { cert: CertWithFile; onClose: () => void 
               href={cert.verifyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold text-white transition-colors sm:inline-flex"
+              className="hidden items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90 sm:inline-flex"
               style={{ background: cert.accent }}
             >
               Verificar
@@ -202,7 +199,7 @@ function CertModal({ cert, onClose }: { cert: CertWithFile; onClose: () => void 
               type="button"
               onClick={onClose}
               aria-label="Cerrar visor"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-[#8A9BAB] transition-colors hover:bg-[#F4F5F7] hover:text-[#1A2228]"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
             >
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
                 <path d="M4 4l8 8M12 4l-8 8" strokeLinecap="round" />
@@ -279,7 +276,7 @@ export default function CertificationsSection({ standalone = false }: { standalo
     : null
 
   return (
-    <section id="certificaciones" style={{ background: '#FFFFFF' }}>
+    <section id="certificaciones" style={{ background: '#F4F5F7' }}>
       <div
         className={`section-container max-w-7xl ${standalone ? '!pt-6 sm:!pt-8 lg:!pt-12' : ''}`}
       >
@@ -289,13 +286,13 @@ export default function CertificationsSection({ standalone = false }: { standalo
             className="font-[family-name:var(--font-barlow)] text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl"
             style={{ color: '#1A2228' }}
           >
-            Avalados por estándares{' '}
-            <span style={{ color: '#FF0001' }}>internacionales</span>
+            Acreditaciones y registros{' '}
+            <span style={{ color: '#FF0001' }}>oficiales</span>
           </h2>
           <p className="mt-3 text-sm leading-relaxed sm:text-base" style={{ color: '#4A5568' }}>
-            Nuestro Sistema de Gestión Integrado se rige por normas ISO de Calidad, Ambiente y
-            Seguridad. Cada certificado puede visualizarse acá mismo y verificarse contra el
-            organismo emisor.
+            Inscripciones y certificados emitidos por organismos provinciales y nacionales que
+            avalan a GP Servicios para operar como proveedor de la industria del Petróleo y Gas.
+            Cada documento puede visualizarse acá mismo y verificarse contra el organismo emisor.
           </p>
         </header>
 
@@ -319,15 +316,15 @@ export default function CertificationsSection({ standalone = false }: { standalo
 
         <div
           className="mt-10 rounded-xl border p-5 text-sm sm:mt-12 sm:p-6"
-          style={{ borderColor: '#E2E5E9', background: '#F4F5F7', color: '#4A5568' }}
+          style={{ borderColor: '#E2E5E9', background: '#FFFFFF', color: '#4A5568' }}
         >
           <p className="font-[family-name:var(--font-barlow)] font-bold" style={{ color: '#1A2228' }}>
             ¿Necesitás validar la vigencia?
           </p>
           <p className="mt-1.5 leading-relaxed">
             Cada certificado tiene un botón <em>Verificar</em> que abre el sitio del organismo
-            emisor (IRAM u otro) donde podés confirmar que el certificado está vigente y emitido a
-            nombre de GP SERVICIOS S.R.L.
+            emisor donde podés confirmar que el certificado está vigente y emitido a nombre de
+            GP SERVICIOS S.R.L.
           </p>
         </div>
       </div>

@@ -13,6 +13,7 @@ export type CertificationKind =
   | 'iso-9001'
   | 'iso-14001'
   | 'iso-45001'
+  | 'ley-3338'
   | 'sgi'
   | 'otra'
 
@@ -46,15 +47,16 @@ export interface Certification {
  */
 export const certifications: readonly Certification[] = [
   {
-    slug: 'iso-9001',
-    name: 'Sistema de Gestión de Calidad',
-    standard: 'ISO 9001:2015 — Certificado N° 1696',
-    kind: 'iso-9001',
-    issuer: 'IRAM — Instituto Argentino de Normalización y Certificación',
-    verifyUrl: 'https://www.iram.org.ar',
+    slug: 'ley-3338',
+    name: 'Compre Neuquino — Registro PyME',
+    standard: 'Ley Provincial 3338 — Certificado N° 1696',
+    kind: 'ley-3338',
+    issuer: 'ADENEU — Agencia para el Desarrollo Económico del Neuquén',
+    verifyUrl:
+      'https://ley3338.adeneu.com.ar/CPYME/(S(050q13drcdpu0pcpis5rbtke))/Certificados.aspx?ID=1696',
     validity: 'Vigente',
     description:
-      'Certificación del Sistema de Gestión de Calidad aplicado a la ingeniería, construcción y montaje en Petróleo y Gas.',
+      'Inscripción en el registro provincial de PyMES neuquinas bajo la Ley 3338. Habilita a GP Servicios como proveedor preferente para operadoras y empresas que contratan en la provincia del Neuquén.',
     fileUrl: '/certs/Certificado1696.pdf',
     accent: '#136A26',
   },
